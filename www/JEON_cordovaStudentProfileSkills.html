@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width,initial-scale-1.0" />
     <title>JEON Student Profile - Skills</title>
 
     <style>
@@ -9,6 +10,7 @@
             margin: 0;
             background: #171044;
             color: white;
+            font-family: arial;
         }
 
         header {
@@ -33,10 +35,7 @@
             margin-top: 5px;
             color: #c4b5fd;
             font-weight: normal;
-        }
-
-        nav {
-            margin-top: 25px;
+            font-size: 30px;
         }
 
         nav a {
@@ -45,6 +44,7 @@
             padding: 10px 25px;
             margin: 5px;
             border-radius: 25px;
+            text-decoration: none;
         }
 
         section {
@@ -58,7 +58,6 @@
         section h2 {
             color: #c4b5fd;
             font-size: 30px;
-            padding-bottom: 10px;
         }
 
         ul {
@@ -70,12 +69,19 @@
             background: #2d2170;
             margin: 15px 0;
             padding: 18px;
-            border-left: 5px solid #8b5cf6;
             border-radius: 10px;
+            width: 40%;
         }
 
         strong {
             color: #c4b5fd;
+        }
+
+        .skills p {
+            line-height: 1.5;
+            color: white;
+            font-size: 17px;
+            text-align: justify;
         }
 
         footer {
@@ -84,6 +90,12 @@
             padding: 25px;
             margin-top: 60px;
             color: #aaa4c7;
+        }
+
+        @media (max-width: 390px) {
+        }
+
+        @media (max-width: 1024px) {
         }
     </style>
 </head>
@@ -107,7 +119,9 @@
     <section>
 
         <h2>My Skills</h2>
+        <hr color="#c4b5fd">
 
+        <div class="skills">
         <ul>
 
             <li>
@@ -136,7 +150,7 @@
             Generally, currently have basic knowledge in the following skills that were listed above. My goals by the end of the semester or rather the year are to improve in the fields that im best on and most
             especially improve on the fields that im worst at.
         </p>
-
+        </div>
     </section>
 
     <footer>

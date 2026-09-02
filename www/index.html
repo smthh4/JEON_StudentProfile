@@ -2,19 +2,22 @@
 <html>
 
 <head>
-<title>JEON Student Profile</title>
+    <meta name="viewport" content="width=device-width,initial-scale-1.0" />
+    <title>JEON Student Profile - About</title>
 
     <style>
         body {
             margin: 0;
             background: #171044;
             color: white;
+            font-family: arial;
         }
 
         header {
             background: linear-gradient(135deg, #24145f, #38218a);
             text-align: center;
             padding: 40px 20px 30px;
+
         }
 
         header img {
@@ -26,13 +29,14 @@
 
         h1 {
             margin: 20px 0 5px;
-            font-size: 42px;
+            font-size: 45px;
         }
 
         header h2 {
             margin-top: 5px;
             color: #c4b5fd;
             font-weight: normal;
+            font-size: 30px;
         }
 
         nav {
@@ -45,12 +49,24 @@
             padding: 10px 25px;
             margin: 5px;
             border-radius: 25px;
+            text-decoration: none;
         }
 
-        section {
-            max-width: 900px;
+        .sections {
+            display: flex;
+            justify-content: center;
+            max-width: 1500px;
+            margin: 30px auto;
+            gap: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .about,
+        .education {
+            max-width: 800px;
             margin: 40px auto;
-            padding: 35px;
+            padding: 30px;
             background: #21175a;
             border-radius: 20px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
@@ -59,13 +75,25 @@
         section h2 {
             color: #c4b5fd;
             font-size: 30px;
-            padding-bottom: 10px;
         }
 
-        section p {
+        section h3 {
+            color: #c4b5fd;
+            font-size: 30px;
+        }
+
+        .about p {
             line-height: 1.8;
             color: #e5e1ff;
             font-size: 17px;
+            text-align: justify;
+        }
+
+        .education p {
+            line-height: 1.8;
+            color: #e5e1ff;
+            font-size: 17px;
+            text-align: justify;
         }
 
         footer {
@@ -74,53 +102,88 @@
             padding: 25px;
             margin-top: 60px;
             color: #aaa4c7;
+            min-height: 5vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        footer p {
-            margin: 5px;
+
+        @media (max-width: 390px) {
+            
+            .sections {
+                gap: 50px;
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            
+            .sections {
+                gap: 50px;
+                display: grid;
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
-
     <header>
-
         <img src="profil.jpg" alt="Profile Picture">
-
         <h1>Min Soo O. Jeon</h1>
         <h2>About Myself</h2>
-
-        <nav>
-            <a href="index.html">About</a>
-            <a href="JEON_cordovaStudentProfileSkills.html">Skills</a>
-        </nav>
-
+        <div class="stacks">
+            <nav>
+                <a href="index.html">About</a>
+                <a href="JEON_cordovaStudentProfileSkills.html">Skills</a>
+            </nav>
+        </div>
     </header>
 
-
-    <section id="about">
+<div class="sections">
+    <section class="about">
 
         <h2>About Me</h2>
-
+        <hr color="#c4b5fd">
         <p>
             My name is Min Soo O. Jeon, a BSIT 3rd year student. I am interested in the physical hardware of computers, programming and more.
             I hope to learn more about what there is about computers & techonlogy in general and i hope to improve my existing skills through
             school projects, activities, seatworks and as well as my own projects that i make outside of school. 
         </p>
-
         <p>
             Educational goal wise i hope to continue developing my knowledge in everything technology become as skilled of a IT professional in the future.
             As well as not just sticking to what i know, but also branch out into other opportunities that presents itself to me.
         </p>
-
     </section>
 
-    <footer>
+    <section class="education">
+        <h3> Education </h3>
+        <hr color="#c3b5fd">
+        <p>
+            <strong>Junior Highschool:</strong><br>
+            Oro Christian Grace School - 2017 - 2022                                
+        </p>
+        <p>
+            <strong>Senior Highschool: </strong><br>
+             Oro Christian Grace School - STEM 2022 - 2024                                    
+        </p>
+        <p>
+            <strong>University: </strong><br>
+            Xavier Ateneo de Cagayan - BS Information Technology - 3                                  
+        </p>
 
+        <p>
+            <strong>Current Goal</strong><br>
+            Continue developing my skills in programming,
+            hardware, and information technology.
+        </p>
+    </section>
+</div>
+
+    <footer>
         <p>&copy; 2026 Jeon Min Soo</p>
         <p>ITCC 41 - Mobile Application Development</p>
-
     </footer>
 
 </body>
