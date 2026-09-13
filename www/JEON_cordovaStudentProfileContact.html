@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width,initial-scale-1.0" />
-    <title>JEON Student Profile - Skills </title>
+    <title>JEON Student Profile - Contact </title>
 
     <style>
         body {
@@ -17,18 +17,7 @@
             background: linear-gradient(135deg, #24145f, #38218a);
             text-align: center;
             padding: 40px 20px 30px;
-        }
 
-        header img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        h1 {
-            margin: 20px 0 5px;
-            font-size: 42px;
         }
 
         header h2 {
@@ -36,6 +25,10 @@
             color: #c4b5fd;
             font-weight: normal;
             font-size: 30px;
+        }
+
+        nav {
+            margin-top: 25px;
         }
 
         nav a {
@@ -47,17 +40,20 @@
             text-decoration: none;
         }
 
-        section {
-            max-width: 900px;
+        .sections {
+            display: grid;
+            grid-template-columns: minmax(0, 900px);
+            justify-content: center;
+            width: 100%;
             margin: 40px auto;
-            padding: 35px;
-            background: #21175a;
-            border-radius: 20px;
         }
 
-        section h2 {
-            color: #c4b5fd;
-            font-size: 30px;
+        .contact{
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #21175a;
+            border-radius: 20px;
         }
 
         ul {
@@ -70,18 +66,16 @@
             margin: 15px 0;
             padding: 18px;
             border-radius: 10px;
-            width: 95%;
+            width: 90%;
         }
- 
+
         strong {
             color: #c4b5fd;
         }
 
-        .skills p {
-            line-height: 1.5;
-            color: white;
-            font-size: 17px;
-            text-align: justify;
+        section h2 {
+            color: #c4b5fd;
+            font-size: 30px;
         }
 
         footer {
@@ -90,58 +84,67 @@
             padding: 25px;
             margin-top: 60px;
             color: #aaa4c7;
+            min-height: 5vh;
+            display: flex;
+            flex-direction: column;
         }
 
         @media (max-width: 390px) {
+            
+            .sections {
+                gap: 50px;
+                display: grid;
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 1024px) {
+            
+            .sections {
+                gap: 50px;
+                display: grid;
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
-
     <header>
-        <nav>
-            <a href="index.html">Profile</a>
-            <a href="JEON_cordovaStudentProfileAbout.html">About</a>
-            <a href="JEON_cordovaStudentProfileSkills.html">Skills</a>
-            <a href="JEON_cordovaStudentProfileProjects.html">Projects</a>    
-            <a href="JEON_cordovaStudentProfileContact.html">Contact</a>
-        </nav>
+        <div class="stacks">
+            <nav>
+                <a href="index.html">Profile</a>
+                <a href="JEON_cordovaStudentProfileAbout.html">About</a>
+                <a href="JEON_cordovaStudentProfileSkills.html">Skills</a>
+                <a href="JEON_cordovaStudentProfileProjects.html">Projects</a>    
+                <a href="JEON_cordovaStudentProfileContact.html">Contact</a>
+            </nav>
+        </div>
     </header>
 
-    <section>
+<div class="sections">
+    <section class="contact">
 
-        <h2>My Skills</h2>
+        <h2>Contacts</h2>
         <hr color="#c4b5fd">
 
-        <div class="skills">
         <ul>
             <li>
-                <strong>HTML</strong><br>
+                <strong>Email:</strong><br>
+                <p>michaeljeon150@gmail.com</p>
             </li>
             <li>
-                <strong>CSS</strong><br>
+                <strong>Github:</strong><br>
+                <p>https://github.com/smthh4</p>
             </li>
             <li>
-                <strong>Java Programming</strong><br>
+                <strong>Socials:</strong><br>
+                <p>https://www.instagram.com/__michaeljeon/</p>
             </li>
-            <li>
-                <strong>Problem Solving</strong><br>
-            </li>
-            <li>
-                <strong>Mobile Application Development</strong><br>
-            </li>
+
         </ul>
-        
-        <p> 
-            Generally, currently have basic knowledge in the following skills that were listed above. My goals by the end of the semester or rather the year are to improve in the fields that im best on and most
-            especially improve on the fields that im worst at.
-        </p>
-        </div>
     </section>
+</div>
 
     <footer>
         <p>&copy; 2026 Jeon Min Soo</p>
