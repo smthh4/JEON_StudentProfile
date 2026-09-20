@@ -111,6 +111,35 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .hidden {
+            display: none;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-family: Arial;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
     </style>
 </head>
 
@@ -128,21 +157,71 @@
     </header>
 
 <div class="sections">
-    <section class="introduction">
+
+    <section class="introduction" id="profileView">
         <img src="profil.jpg" alt="Profile Picture" style="display: block; margin: 0 auto;">
-        <h1 style="text-align: center;">Min Soo O. Jeon</h1>
+        <h1 style="text-align: center;">Student Profile</h1>
         <h2 style="text-align: center;">Introduction</h2>
         <hr color="#c4b5fd">
-        <p>
-            My name is Min Soo O. Jeon and you can call me Min Soo. I am 21 years old and I go to university in Xavier University Ateneo de Cagayan.
-        </p>
+
+        <p><strong>Name:</strong> <span id="displayName"></span></p>
+        <p><strong>About:</strong> <span id="displayAbout"></span></p>
+        <p><strong>Course:</strong> <span id="displayCourse"></span></p>
+        <p><strong>Year Level:</strong> <span id="displayYear"></span></p>
+        <p><strong>Skills:</strong> <span id="displaySkills"></span></p>
+        <button id="editProfileButton">Edit Profile</button>
     </section>
+
+    <section class="introduction hidden" id="editProfileSection">
+
+        <h2>Edit Profile</h2>
+
+        <form id="profileForm">
+
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName">
+            </div>
+
+            <div class="form-group">
+                <label for="course">Course</label>
+                <input type="text" id="course">
+            </div>
+
+            <div class="form-group">
+                <label for="yearLevel">Year Level</label>
+                <input type="text" id="yearLevel">
+            </div>
+
+            <div class="form-group">
+                <label for="about">About Me</label>
+                <textarea id="about" rows="5"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="skills">Skills</label>
+                <textarea id="skills" rows="4"></textarea>
+            </div>
+
+            <p id="formMessage"></p>
+
+            <div class="form-buttons">
+                <button type="submit">Save</button>
+                <button type="button" id="cancelButton">Cancel</button>
+            </div>
+
+        </form>
+
+    </section>
+
 </div>
 
     <footer>
         <p>&copy; 2026 Jeon Min Soo</p>
         <p>ITCC 41 - Mobile Application Development</p>
     </footer>
+
+    <script src="profileJS.js"></script>
 
 </body>
 
