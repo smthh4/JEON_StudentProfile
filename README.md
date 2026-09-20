@@ -1,47 +1,54 @@
 1. Project Description
-   
-This is an updated version of my student profile from Activity 3. It is updated to have multiple pages. 
+
+A multipage responsive student profile website that is built using HTML and JavaScript. It show different information of the student such as the Profile, About, Skills, Projects and Contact.
 
 2. Application Pages
-Explain the purpose of each page:
-   
-Explain the main parts of your application:
 
-**Profile** - Contains my profile picture, my full name and a short description of myself
+Profile - Shows the most basic information of the student.
 
-**About Section** - Includes a short introduction of myself, few interest and my eventual educational goals. It also shows my education from junior high school up to university.
+About - Shows most information of the student and also the students education background.
 
-**Skills Section** - A few skills from over the years studying in BSIT. General knowledge in all those fields
+Skills - Shows the certain skills of the student
 
-**Projects** - Contains 3 previous projects that i have built
+Projects - Shows the past projects that the student built or help built
 
-**Contact** - My contact information such as my Github, Email and social page
+Contact - Shows the students email, social/s and Github profile
 
-3. Navigation
-Explain how navigation between the pages is implemented.
-Mention that the application uses links to navigate between the different pages.
+3. Profile Editing
 
-Used the href or the Hypertext Reference which allows to navigate around the different tabs available.
+Profile editing starts with clicking the Edit Profile button. The following information that can be changed are the following:
 
-Code: 
-                <a href="index.html">Profile</a>
-                <a href="JEON_cordovaStudentProfileAbout.html">About</a>
-                <a href="JEON_cordovaStudentProfileSkills.html">Skills</a>
-                <a href="JEON_cordovaStudentProfileProjects.html">Projects</a>    
-                <a href="JEON_cordovaStudentProfileContact.html">Contact</a>
-                
+* Name
+* About
+* Course
+* Year level
+* Skills
 
-4. Responsive Design
+After the user inputs all the necessary changes he/she needs, everything gets saved and updated after clicking the save button
+
+4. JavaScript Functionality
+Explain how JavaScript is used for:
+
+Form handling - JavaScript allow users to input information in text fields. After inputting information users will be eligible to save the new changes.
+
+Validation -  JavaScript makes it so that the user wont be able to save any changes unless the text fields are filled.
+
+Profile updates - After clicking save, JavaScript updates and displays the new information that the user inputted.
+
+Save - JavaScript saves any new information into the local storage.
+
+Cancel - JavaScript closes the form and displays the original profile section.
+
+5. Local Data Storage
+
+JavaScript checks the local storage from the previous saved information and it displays the latest change/save. If there wasn't a new change from the previous use then it just displays the default information from the JavaScript file.  The local storage is saved in the browsers local storage.
+
+6. Responsive Design
 Explain how the application remains responsive across:
-   
-It adjusted depending on the device being used. Tested the scaling through inspect element and it showed that when it came to the scale of tablets and mobile it auto adjusts to a cleaner and better adjusted layout for each user device.
 
-5. UI/UX Principles Applied
-Briefly explain how you maintained the Module 4 UI/UX principles throughout the different pages.
+For all devices of Desktop, Tablet and Mobile the Edit Profile button remains a good size and is easily accessible no matter the size of the device.
 
-Generally i didnt really have to change anything because there wasn't anything from the new tabs that would make it not responsive but i had to use help from AI for the projects tab because of i didnt know how to make a good layout position of each project. 
-
-6. How to Run
+7. How to Run
 Provide the steps necessary to build and run the Cordova application.
 General steps:
 
@@ -60,26 +67,21 @@ General steps:
 7. Start up an app that can run cordova like android studios and you will be able to launch the website.
 
 
-7. Application Screenshots
-Include screenshots demonstrating the different pages of your application.
+8. Application Screenshots
+Include screenshots of at least:
 
-Profile:
-<img width="385" height="777" alt="image" src="https://github.com/user-attachments/assets/52d02b9b-e478-4ec7-860f-70a349404c82" />
+Student Profile:
+<img width="937" height="737" alt="image" src="https://github.com/user-attachments/assets/e736716a-2cf4-4216-8b1e-7436bf641d66" />
 
 
-About:
+Edit Profile:
+<img width="722" height="860" alt="image" src="https://github.com/user-attachments/assets/ad6685e7-6285-47b8-b3b5-600a1afc42d1" />
 
-<img width="386" height="771" alt="image" src="https://github.com/user-attachments/assets/511e09b1-d531-490b-a8ad-b51b8d473b8f" />
 
-Skills:
+Updated Profile:
+<img width="646" height="884" alt="image" src="https://github.com/user-attachments/assets/33d12e27-1e93-44b5-afc9-ed61558c4a32" />
+<img width="966" height="748" alt="image" src="https://github.com/user-attachments/assets/ef2605b6-cd34-46f4-b87d-caffe51326e3" />
 
-<img width="390" height="766" alt="image" src="https://github.com/user-attachments/assets/e07fe4a2-9fb5-4a69-98f4-c5b7de16d74b" />
 
-Projects:
 
-<img width="384" height="776" alt="image" src="https://github.com/user-attachments/assets/27d8f10c-4424-49cc-8f1b-086716be7e31" />
-
-Contact:
-
-<img width="380" height="787" alt="image" src="https://github.com/user-attachments/assets/24ee2de1-d635-40bc-92b4-32da0542dd18" />
 
