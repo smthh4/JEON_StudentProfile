@@ -153,13 +153,20 @@
                 <a href="JEON_cordovaStudentProfileProjects.html">Projects</a>    
                 <a href="JEON_cordovaStudentProfileContact.html">Contact</a>
             </nav>
-        </div>
+        </div>s
     </header>
 
 <div class="sections">
 
     <section class="introduction" id="profileView">
-        <img src="profil.jpg" alt="Profile Picture" style="display: block; margin: 0 auto;">
+        <img id="profileImage"
+            src="profil.jpg"
+            alt="Profile Picture"
+            style="display: block; margin: 0 auto;">
+
+        <button type="button" id="changeProfilePictureButton">
+            Change Profile
+        </button>
         <h1 style="text-align: center;">Student Profile</h1>
         <h2 style="text-align: center;">Introduction</h2>
         <hr color="#c4b5fd">
@@ -221,6 +228,7 @@
         <p>ITCC 41 - Mobile Application Development</p>
     </footer>
 
+    <script src="cordova.js"></script>
     <script src="profileJS.js"></script>
 
 </body>
