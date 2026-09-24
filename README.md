@@ -99,7 +99,8 @@ Include screenshots demonstrating:
 
 Student Profile - <img width="1080" height="2400" alt="image" src="https://github.com/user-attachments/assets/07a273e0-6574-43d8-9a8d-bca2ad046701" />
 
-Camera - <img width="1080" height="2400" alt="image" src="https://github.com/user-attachments/assets/1ac45859-7d6d-4416-84d1-a51d36cdf2e7" />
+Camera - <img width="1080" height="2400" alt="image" src="https://github.com/user-attachments/assets/1abd6119-b4f1-4426-84b3-072ce30398d1" />
+
 
 Change Profile Picture - 
 Captured Image - 
