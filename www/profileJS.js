@@ -8,18 +8,53 @@ const defaultProfile = {
     skills: "HTML, CSS, Java"
 };
 
+
+// =========================
+// LOGIN / AUTHENTICATION
+// =========================
+
+function getAuthToken() {
+    return localStorage.getItem("authToken");
+}
+
+function isLoggedIn() {
+    return !!getAuthToken();
+}
+
+function requireLogin() {
+
+    if (!isLoggedIn()) {
+        window.location.href = "login.html";
+        return false;
+    }
+
+    return true;
+}
+
+function logout() {
+
+    localStorage.removeItem("authToken");
+
+    window.location.href = "login.html";
+}
+
 function loadProfile() {
 
-    const savedProfile = localStorage.getItem("studentProfile");
+    const savedProfile =
+        localStorage.getItem("studentProfile");
 
     if (savedProfile) {
 
         try {
+
             return JSON.parse(savedProfile);
 
         } catch (error) {
 
-            console.error("Error loading saved profile:", error);
+            console.error(
+                "Error loading saved profile:",
+                error
+            );
 
             return defaultProfile;
         }
@@ -28,53 +63,125 @@ function loadProfile() {
     return defaultProfile;
 }
 
+
 function displayProfile() {
 
     const profile = loadProfile();
 
-    document.getElementById("displayName").textContent =
-        profile.fullName;
+    const displayName =
+        document.getElementById("displayName");
 
-    document.getElementById("displayCourse").textContent =
-        profile.course;
+    const displayCourse =
+        document.getElementById("displayCourse");
 
-    document.getElementById("displayYear").textContent =
-        profile.yearLevel;
+    const displayYear =
+        document.getElementById("displayYear");
 
-    document.getElementById("displayAbout").textContent =
-        profile.about;
+    const displayAbout =
+        document.getElementById("displayAbout");
 
-    document.getElementById("displaySkills").textContent =
-        profile.skills;
+    const displaySkills =
+        document.getElementById("displaySkills");
+
+
+    if (displayName) {
+        displayName.textContent =
+            profile.fullName;
+    }
+
+    if (displayCourse) {
+        displayCourse.textContent =
+            profile.course;
+    }
+
+    if (displayYear) {
+        displayYear.textContent =
+            profile.yearLevel;
+    }
+
+    if (displayAbout) {
+        displayAbout.textContent =
+            profile.about;
+    }
+
+    if (displaySkills) {
+        displaySkills.textContent =
+            profile.skills;
+    }
 }
 
 function openEditProfile() {
 
+    console.log("EDIT PROFILE BUTTON CLICKED");
+
     const profile = loadProfile();
 
-    document.getElementById("fullName").value =
-        profile.fullName;
 
-    document.getElementById("course").value =
-        profile.course;
+    const fullName =
+        document.getElementById("fullName");
 
-    document.getElementById("yearLevel").value =
-        profile.yearLevel;
+    const course =
+        document.getElementById("course");
 
-    document.getElementById("about").value =
-        profile.about;
+    const yearLevel =
+        document.getElementById("yearLevel");
 
-    document.getElementById("skills").value =
-        profile.skills;
+    const about =
+        document.getElementById("about");
 
-    document.getElementById("profileView")
-        .classList.add("hidden");
+    const skills =
+        document.getElementById("skills");
 
-    document.getElementById("editProfileSection")
-        .classList.remove("hidden");
 
-    document.getElementById("formMessage")
-        .textContent = "";
+    if (fullName) {
+        fullName.value =
+            profile.fullName;
+    }
+
+    if (course) {
+        course.value =
+            profile.course;
+    }
+
+    if (yearLevel) {
+        yearLevel.value =
+            profile.yearLevel;
+    }
+
+    if (about) {
+        about.value =
+            profile.about;
+    }
+
+    if (skills) {
+        skills.value =
+            profile.skills;
+    }
+
+
+    const profileView =
+        document.getElementById("profileView");
+
+    const editProfileSection =
+        document.getElementById("editProfileSection");
+
+
+    if (profileView) {
+        profileView.classList.add("hidden");
+    }
+
+    if (editProfileSection) {
+        editProfileSection.classList.remove("hidden");
+    }
+
+
+    const formMessage =
+        document.getElementById("formMessage");
+
+    if (formMessage) {
+        formMessage.textContent = "";
+    }
+
 
     window.scrollTo(0, 0);
 }
@@ -82,14 +189,32 @@ function openEditProfile() {
 
 function cancelEdit() {
 
-    document.getElementById("editProfileSection")
-        .classList.add("hidden");
+    console.log("CANCEL BUTTON CLICKED");
 
-    document.getElementById("profileView")
-        .classList.remove("hidden");
 
-    document.getElementById("formMessage")
-        .textContent = "";
+    const editProfileSection =
+        document.getElementById("editProfileSection");
+
+    const profileView =
+        document.getElementById("profileView");
+
+
+    if (editProfileSection) {
+        editProfileSection.classList.add("hidden");
+    }
+
+    if (profileView) {
+        profileView.classList.remove("hidden");
+    }
+
+
+    const formMessage =
+        document.getElementById("formMessage");
+
+    if (formMessage) {
+        formMessage.textContent = "";
+    }
+
 
     window.scrollTo(0, 0);
 }
@@ -104,31 +229,43 @@ function validateProfile(
 
     if (fullName.trim() === "") {
 
-        alert("Please enter your full name.");
+        alert(
+            "Please enter your full name."
+        );
 
         return false;
     }
+
 
     if (course.trim() === "") {
 
-        alert("Please enter your course.");
+        alert(
+            "Please enter your course."
+        );
 
         return false;
     }
+
 
     if (yearLevel.trim() === "") {
 
-        alert("Please enter your year level.");
+        alert(
+            "Please enter your year level."
+        );
 
         return false;
     }
+
 
     if (about.trim() === "") {
 
-        alert("Please enter your About Me information.");
+        alert(
+            "Please enter your About Me information."
+        );
 
         return false;
     }
+
 
     return true;
 }
@@ -137,6 +274,9 @@ function validateProfile(
 function saveProfile(event) {
 
     event.preventDefault();
+
+    console.log("PROFILE FORM SUBMITTED");
+
 
     const fullName =
         document.getElementById("fullName").value;
@@ -164,55 +304,77 @@ function saveProfile(event) {
         return;
     }
 
+
     const updatedProfile = {
 
-        fullName: fullName.trim(),
+        fullName:
+            fullName.trim(),
 
-        course: course.trim(),
+        course:
+            course.trim(),
 
-        yearLevel: yearLevel.trim(),
+        yearLevel:
+            yearLevel.trim(),
 
-        about: about.trim(),
+        about:
+            about.trim(),
 
-        skills: skills.trim()
+        skills:
+            skills.trim()
     };
+
 
     localStorage.setItem(
         "studentProfile",
         JSON.stringify(updatedProfile)
     );
 
+
     displayProfile();
 
-    document.getElementById("editProfileSection")
-        .classList.add("hidden");
 
-    document.getElementById("profileView")
-        .classList.remove("hidden");
+    document.getElementById(
+        "editProfileSection"
+    ).classList.add("hidden");
 
 
-    alert("Profile successfully updated!");
+    document.getElementById(
+        "profileView"
+    ).classList.remove("hidden");
+
+
+    alert(
+        "Profile successfully updated!"
+    );
+
 
     window.scrollTo(0, 0);
 }
+
 
 function loadProfileImage() {
 
     const savedImage =
         localStorage.getItem(PROFILE_IMAGE_KEY);
 
+
     if (!savedImage) {
         return;
     }
 
+
     const profileImage =
         document.getElementById("profileImage");
+
 
     if (!profileImage) {
         return;
     }
 
-    profileImage.src = savedImage;
+
+    profileImage.src =
+        savedImage;
+
 
     console.log(
         "Saved profile image loaded."
@@ -221,78 +383,105 @@ function loadProfileImage() {
 
 function changeProfilePicture() {
 
-    console.log("CHANGE PROFILE BUTTON CLICKED");
+    console.log(
+        "CHANGE PROFILE BUTTON CLICKED"
+    );
+
 
     if (!navigator.camera) {
-        alert("Camera plugin is not available.");
+
+        alert(
+            "Camera plugin is not available. Please run the app on the Cordova Android device/emulator."
+        );
+
         return;
     }
 
+
     const options = {
+
         quality: 50,
-        destinationType: Camera.DestinationType.DATA_URL,
-        sourceType: Camera.PictureSourceType.CAMERA,
-        encodingType: Camera.EncodingType.JPEG,
-        mediaType: Camera.MediaType.PICTURE,
+
+        destinationType:
+            Camera.DestinationType.DATA_URL,
+
+        sourceType:
+            Camera.PictureSourceType.CAMERA,
+
+        encodingType:
+            Camera.EncodingType.JPEG,
+
+        mediaType:
+            Camera.MediaType.PICTURE,
+
         targetWidth: 400,
+
         targetHeight: 400,
+
         correctOrientation: true,
+
         allowEdit: false
     };
+
 
     navigator.camera.getPicture(
 
         function (imageData) {
 
-            console.log("CAMERA SUCCESS!");
-            console.log("Image data received.");
-            console.log("Image data length:", imageData.length);
+            console.log(
+                "CAMERA SUCCESS!"
+            );
+
 
             if (!imageData) {
-                alert("Camera returned no image data.");
+
+                alert(
+                    "Camera returned no image data."
+                );
+
                 return;
             }
+
 
             const profileImage =
-                document.getElementById("profileImage");
+                document.getElementById(
+                    "profileImage"
+                );
+
 
             if (!profileImage) {
-                alert("Profile image element not found.");
+
+                alert(
+                    "Profile image element not found."
+                );
+
                 return;
             }
+
 
             let imageSource;
 
-            if (imageData.startsWith("data:image")) {
 
-                imageSource = imageData;
+            if (
+                imageData.startsWith(
+                    "data:image"
+                )
+            ) {
+
+                imageSource =
+                    imageData;
 
             } else {
 
                 imageSource =
-                    "data:image/jpeg;base64," + imageData;
+                    "data:image/jpeg;base64," +
+                    imageData;
             }
 
-            profileImage.onload = function () {
 
-                console.log("NEW PROFILE IMAGE LOADED!");
+            profileImage.src =
+                imageSource;
 
-            };
-
-
-            profileImage.onerror = function () {
-
-                console.error(
-                    "PROFILE IMAGE FAILED TO LOAD"
-                );
-
-                alert(
-                    "Photo was taken, but the image could not be displayed."
-                );
-
-            };
-
-            profileImage.src = imageSource;
 
             try {
 
@@ -301,9 +490,16 @@ function changeProfilePicture() {
                     imageSource
                 );
 
+
                 console.log(
                     "PROFILE IMAGE SAVED!"
                 );
+
+
+                alert(
+                    "Profile picture successfully changed!"
+                );
+
 
             } catch (error) {
 
@@ -312,12 +508,14 @@ function changeProfilePicture() {
                     error
                 );
 
+
                 alert(
                     "Photo displayed, but could not be saved."
                 );
             }
 
         },
+
 
         function (error) {
 
@@ -326,79 +524,143 @@ function changeProfilePicture() {
                 error
             );
 
+
+            if (
+                error === "Camera cancelled." ||
+                error === "Selection cancelled."
+            ) {
+
+                return;
+            }
+
+
             alert(
                 "Camera error: " + error
             );
-
         },
+
 
         options
     );
+}
+
+function setupProfileEvents() {
+
+    console.log(
+        "SETTING UP PROFILE EVENTS..."
+    );
+
+
+    const editButton =
+        document.getElementById(
+            "editProfileButton"
+        );
+
+
+    if (editButton) {
+
+        editButton.onclick =
+            openEditProfile;
+
+        console.log(
+            "Edit Profile button connected."
+        );
+    }
+
+
+    const cancelButton =
+        document.getElementById(
+            "cancelButton"
+        );
+
+
+    if (cancelButton) {
+
+        cancelButton.onclick =
+            cancelEdit;
+
+        console.log(
+            "Cancel button connected."
+        );
+    }
+
+
+    const profileForm =
+        document.getElementById(
+            "profileForm"
+        );
+
+
+    if (profileForm) {
+
+        profileForm.onsubmit =
+            saveProfile;
+
+        console.log(
+            "Profile form connected."
+        );
+    }
+
+
+    const changeProfilePictureButton =
+        document.getElementById(
+            "changeProfilePictureButton"
+        );
+
+
+    if (changeProfilePictureButton) {
+
+        changeProfilePictureButton.onclick =
+            changeProfilePicture;
+
+        console.log(
+            "Change Profile button connected."
+        );
+    }
 }
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
 
+        console.log(
+            "DOM CONTENT LOADED"
+        );
+
+
+        if (!requireLogin()) {
+            return;
+        }
+
+
         displayProfile();
 
         loadProfileImage();
 
+        setupProfileEvents();
     }
 );
+
 
 document.addEventListener(
     "deviceready",
     function () {
 
-        console.log("Cordova is ready.");
+        console.log(
+            "CORDOVA IS READY"
+        );
+
+
+        if (!requireLogin()) {
+            return;
+        }
+
 
         displayProfile();
+
         loadProfileImage();
 
-        const editButton =
-            document.getElementById("editProfileButton");
-
-        if (editButton) {
-            editButton.addEventListener(
-                "click",
-                openEditProfile
-            );
-        }
-
-        const cancelButton =
-            document.getElementById("cancelButton");
-
-        if (cancelButton) {
-            cancelButton.addEventListener(
-                "click",
-                cancelEdit
-            );
-        }
-
-        const profileForm =
-            document.getElementById("profileForm");
-
-        if (profileForm) {
-            profileForm.addEventListener(
-                "submit",
-                saveProfile
-            );
-        }
-
-        const changeProfilePictureButton =
-            document.getElementById(
-                "changeProfilePictureButton"
-            );
-
-        if (changeProfilePictureButton) {
-
-            changeProfilePictureButton.addEventListener(
-                "click",
-                changeProfilePicture
-            );
-        }
-
+        setupProfileEvents();
     },
     false
 );
